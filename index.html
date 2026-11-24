@@ -2,452 +2,53 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>김도언 · 작업 명세서</title>
-<meta name="description" content="김도언 포트폴리오 — 2020년부터 온라인 판매를 하며 자동화·데이터 분석·퀀트 리서치를 해 온 기록">
-<meta property="og:title" content="김도언 · 작업 명세서">
-<meta property="og:description" content="팔고, 만들고, 검증한 것들 (2020 — 2026)">
-<meta property="og:url" content="https://kimdoeon.kro.kr/">
-<meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='28' height='28' rx='4' fill='none' stroke='%2394571C' stroke-width='3'/%3E%3Ctext x='16' y='22' font-size='16' font-weight='800' text-anchor='middle' fill='%2394571C'%3E%EB%8C%80%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>챗봇 테스트</title>
+<meta name="robots" content="noindex">
 <style>
-:root{
-  color-scheme:light;
-  --paper:#F2F3EF;
-  --sheet:#FBFBF8;
-  --ink:#1A1E1C;
-  --ink-2:#4A524E;
-  --ink-3:#7B837E;
-  --rule:#D3D7D0;
-  --rule-soft:#E3E6E0;
-  --kraft:#94571C;
-  --kraft-wash:rgba(148,87,28,.08);
-  --ok:#2C6B47;
-  --run:#94571C;
-  --wait:#5B6670;
-  --no:#9C3A2C;
-  --display:'Hahmlet','Noto Serif KR','Batang',serif;
-  --body:'Noto Sans KR','Malgun Gothic',system-ui,sans-serif;
-  --mono:'JetBrains Mono','D2Coding',ui-monospace,Consolas,monospace;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --paper:#141715;--sheet:#1B1F1D;--ink:#E7EAE5;--ink-2:#B0B8B2;--ink-3:#808A84;
-    --rule:#2E3431;--rule-soft:#252A27;--kraft:#E0A262;--kraft-wash:rgba(224,162,98,.10);
-    --ok:#6FC594;--run:#E0A262;--wait:#97A3AD;--no:#E88B7B;color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --paper:#141715;--sheet:#1B1F1D;--ink:#E7EAE5;--ink-2:#B0B8B2;--ink-3:#808A84;
-  --rule:#2E3431;--rule-soft:#252A27;--kraft:#E0A262;--kraft-wash:rgba(224,162,98,.10);
-  --ok:#6FC594;--run:#E0A262;--wait:#97A3AD;--no:#E88B7B;color-scheme:dark;
-}
+:root{--bg:#f6f7f5;--card:#fff;--ink:#1b1f1d;--ink2:#545c58;--line:#dfe3de;--accent:#1f5f8b}
+@media (prefers-color-scheme:dark){:root{--bg:#141716;--card:#1c201e;--ink:#e8ebe7;--ink2:#a9b1ac;--line:#2c322f;--accent:#7fb4dc}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased}
-img{max-width:100%}
-.wrap{max-width:1080px;margin:0 auto;padding-inline:24px;padding-block:0 96px}
-@media(max-width:640px){.wrap{padding-inline:16px}body{font-size:15px}}
-h1,h2,h3,h4{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.02em}
-p{margin:0}
-b,strong{font-weight:700;color:var(--ink)}
-code{font-family:var(--mono);font-size:.85em;background:var(--rule-soft);padding:1px 5px;border-radius:2px}
-.label{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
-
-.head{padding-block:72px 32px;border-bottom:2px solid var(--ink);display:grid;gap:22px}
-.head h1{font-size:clamp(40px,7vw,68px);font-weight:800;line-height:1.05}
-.whois{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}
-.whois .nm{font-family:var(--display);font-size:clamp(22px,3vw,28px);font-weight:800;letter-spacing:-.01em;color:var(--ink)}
-.head .dek{font-size:clamp(17px,2.2vw,19px);color:var(--ink-2);max-width:46ch}
-.idline{display:flex;flex-wrap:wrap;gap:6px 20px;font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
-.idline span::before{content:"▪ ";color:var(--kraft)}
-
-.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--rule)}
-@media(max-width:760px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.fact{padding:20px 16px 18px 0;border-right:1px solid var(--rule-soft)}
-.fact:last-child{border-right:0}
-@media(max-width:760px){.fact:nth-child(2){border-right:0}.fact{padding-left:0}}
-.fact b{display:block;font-family:var(--display);font-size:30px;line-height:1.1;font-weight:800;font-variant-numeric:tabular-nums}
-.fact span{display:block;font-size:13.5px;font-weight:700;color:var(--ink-2);margin-top:6px;line-height:1.5}
-
-section{margin-top:80px}
-.sec{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px;border-top:2px solid var(--ink);padding-top:14px;margin-bottom:28px}
-.sec h2{font-size:clamp(24px,3.4vw,32px)}
-.sec p{color:var(--ink-2);font-size:15px;flex-basis:100%;max-width:64ch}
-
-.size{display:inline-grid;place-items:center;width:30px;height:30px;border:1.5px solid var(--kraft);color:var(--kraft);font-family:var(--display);font-weight:800;font-size:15px;border-radius:3px;flex:none}
-.size.s-m{width:26px;height:26px;font-size:13.5px}
-.size.s-s{width:22px;height:22px;font-size:12px;border-width:1px}
-
-.st{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:0;white-space:nowrap}
-.st::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
-.ok{color:var(--ok)}.run{color:var(--run)}.wait{color:var(--wait)}.no{color:var(--no)}
-
-.scroll{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:14.5px}
-th{text-align:left;font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);padding:0 12px 8px 0;border-bottom:1px solid var(--ink)}
-td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule-soft);vertical-align:top;color:var(--ink-2)}
-td:first-child{width:40px}
-td.t{color:var(--ink);font-weight:700}
-
-.case{background:var(--sheet);border:1px solid var(--rule);margin-bottom:28px}
-.case-top{display:flex;gap:14px;align-items:flex-start;padding:22px 24px 18px;border-bottom:1px dashed var(--rule)}
-.case-top .tt{flex:1;min-width:0}
-.case-top h3{font-size:clamp(21px,2.8vw,26px);line-height:1.3}
-.case-top .sub{color:var(--ink-2);margin-top:6px;font-size:15px}
-.spec{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:10px;font-family:var(--mono);font-size:12px;color:var(--ink-3)}
-.case-body{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:32px;padding:20px 24px 24px}
-@media(max-width:860px){.case-body{grid-template-columns:1fr;gap:20px}}
-@media(max-width:640px){.case-top,.case-body{padding-inline:16px}}
-.case-body h4{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.04em;color:var(--kraft);margin:18px 0 6px}
-.case-body h4:first-child{margin-top:0}
-.case-body ul{margin:4px 0 0;padding-left:1.1em}
-.case-body li{margin:5px 0;color:var(--ink-2)}
-.case-body li::marker{color:var(--ink-3)}
-.case-body p{color:var(--ink-2)}
-.main{min-width:0;max-width:66ch}
-.side{min-width:0;display:grid;gap:14px;align-content:start}
-.kv{border-top:1px solid var(--ink);padding-top:10px}
-.kv b{display:block;font-family:var(--display);font-size:26px;font-weight:800;line-height:1.15;font-variant-numeric:tabular-nums}
-.kv span{display:block;font-size:12.5px;color:var(--ink-3);line-height:1.5;margin-top:3px}
-.chart{margin-top:12px}
-.chart svg{width:100%;height:auto;display:block}
-.chart text{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
-.chart .v{fill:var(--ink);font-weight:600}
-
-.mids{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-@media(max-width:760px){.mids{grid-template-columns:1fr}}
-.mid{border-top:1px solid var(--ink);padding-top:14px;display:grid;gap:8px;align-content:start}
-.mid-h{display:flex;gap:10px;align-items:flex-start}
-.mid-h h3{font-size:19px;line-height:1.35;flex:1;min-width:0}
-.mid .meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
-.mid p{color:var(--ink-2);font-size:15px}
-
-.ways{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-@media(max-width:760px){.ways{grid-template-columns:1fr}}
-.way{border-top:1px solid var(--rule);padding-top:12px}
-.way h3{font-size:17px;line-height:1.4;margin-bottom:6px}
-.way p{font-size:14.5px;color:var(--ink-2)}
-
-footer{margin-top:72px;padding-top:14px;border-top:2px solid var(--ink);display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
-:focus-visible{outline:2px solid var(--kraft);outline-offset:2px}
-
-@media print{
-  :root{--paper:#fff;--sheet:#fff}
-  body{font-size:10.5pt}
-  .wrap{max-width:none;padding:0}
-  .head{padding-top:0}
-  section{margin-top:36px}
-  .case,.mid,.way,tr{break-inside:avoid}
-  .sec{break-after:avoid}
-  .case-body{grid-template-columns:minmax(0,1fr) 200px}
-  .facts{grid-template-columns:repeat(4,minmax(0,1fr))}
-  .mids{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .ways{grid-template-columns:repeat(3,minmax(0,1fr))}
-}
-@page{size:A4;margin:14mm 13mm}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 "Malgun Gothic",system-ui,sans-serif;word-break:keep-all}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line);background:var(--card)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font-weight:800;font-size:20px;letter-spacing:-.02em}
+nav a{color:var(--ink2);text-decoration:none;margin-left:20px;font-size:15px}
+.hero{padding:72px 0 56px}
+.hero h1{font-size:clamp(30px,5vw,46px);line-height:1.2;margin:0 0 14px;letter-spacing:-.03em}
+.hero p{color:var(--ink2);max-width:560px;margin:0}
+.badge{display:inline-block;font-size:12px;border:1px solid var(--line);border-radius:99px;padding:2px 10px;color:var(--ink2);margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:56px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}nav{display:none}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px}
+.card h3{margin:0 0 6px;font-size:18px}
+.card p{margin:0;color:var(--ink2);font-size:15px}
+h2{font-size:24px;margin:0 0 16px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:15px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line)}
+th{color:var(--ink2);font-weight:600}
+footer{margin-top:64px;padding:24px 0 96px;border-top:1px solid var(--line);color:var(--ink2);font-size:13px}
 </style>
 </head>
 <body>
-<div class="wrap">
+<header><div class="wrap"><span class="logo">테스트 사이트</span><nav><a href="#about">소개</a><a href="#contact">문의</a></nav></div></header>
+<main class="wrap">
+  <section class="hero">
+    <span class="badge">챗봇 테스트용 페이지</span>
+    <h1>오른쪽 아래 상담 창에<br>궁금한 걸 물어보세요</h1>
+    <p>이 페이지는 챗봇 위젯이 실제 홈페이지에서 어떻게 보이고 답하는지 시험하려고 만든 빈 사이트예요.</p>
+  </section>
 
-<header class="head">
-  <div class="whois"><span class="nm">김도언</span><span class="label">작업 명세서 · 2020 — 2026</span></div>
-  <h1>팔고, 만들고,<br>검증한 것들</h1>
-  <p class="dek">2020년부터 재고를 직접 두고 온라인 판매를 해 왔고, 그 옆에서 자동화·데이터 분석·퀀트 리서치를 했습니다. 크기별로 대·중·소로 나눴습니다.</p>
-  <div class="idline">
-    <span>한양대 ERICA 교통물류공학 (2027.02 졸업 예정)</span>
-    <span>제조 기업 현장실습 (2026.07 —)</span>
-    <span>쿠팡 · 네이버 스마트스토어 셀러</span>
-  </div>
-</header>
+  <section id="about" class="grid">
+    <div class="card"><h3>제품 질문</h3><p>제품 종류나 용도를 물어보면 올린 자료를 바탕으로 답해요.</p></div>
+    <div class="card"><h3>견적 문의</h3><p>견적이 필요하면 문의서를 열어 필요한 내용을 남길 수 있어요.</p></div>
+    <div class="card"><h3>담당자 연결</h3><p>자료에 없는 질문은 메일을 남기면 담당자가 답해요.</p></div>
+  </section>
 
-<div class="facts">
-  <div class="fact"><b>14.2억</b><span>온라인 판매 누적 매출<br>2020.02부터</span></div>
-  <div class="fact"><b>45,541건</b><span>사내 메일 시스템 수집<br>누락 0, 매일 사용 중</span></div>
-  <div class="fact"><b>120건/일</b><span>실재고 직접 포장·출고</span></div>
-  <div class="fact"><b>1.34</b><span>퀀트 봉인 홀드아웃 Sharpe<br>사전 예측 4/4 적중</span></div>
-</div>
+  <footer id="contact">챗봇 위젯 시험용 페이지예요. 실제 회사 홈페이지가 아니에요.</footer>
+</main>
 
-<section>
-  <div class="sec">
-    <span class="size">대</span>
-    <h2>대형</h2>
-    <p>규모가 크거나 지금도 굴러가는 것들. 문제, 한 일, 결과 순서입니다.</p>
-  </div>
-
-  <article class="case" id="c1">
-    <div class="case-top">
-      <span class="size">대</span>
-      <div class="tt">
-        <h3>온라인 판매 사업과 출고 자동화</h3>
-        <p class="sub">2020년 네이버, 쿠팡 순으로 시작한 실재고 판매. 반복 업무의 병목을 찾아 코드로 걷어냈습니다.</p>
-        <div class="spec"><span>2020.02 —</span><span>Python · 쿠팡 OpenAPI</span><span class="st run">운영 중</span></div>
-      </div>
-    </div>
-    <div class="case-body">
-      <div class="main">
-        <h4>문제</h4>
-        <p>포장·송장 출력은 120건에 20분으로 이미 빨랐습니다. 시간을 먹는 건 쿠팡 발주서 → 택배 양식 → 발송처리로 이어지는 엑셀 왕복이었습니다.</p>
-        <h4>한 일</h4>
-        <ul>
-          <li>엑셀 왕복만 자동화 대상으로 정하고 쿠팡 API 연동 스크립트를 만들었습니다.</li>
-          <li>송장은 박스 단위, 발송처리는 주문 항목 단위라는 불일치 등 API 함정을 정리했습니다.</li>
-          <li>로켓그로스 진입을 검토해 진짜 변수가 고정비가 아니라 사이즈 구간과 반품률임을 계산기로 보였습니다.</li>
-        </ul>
-        <h4>결과</h4>
-        <p>연 매출 4년간 3.5배. 2026년엔 쿠팡 −2%, 네이버 +52%로 성장 축이 옮겨 가는 것을 월별 재집계로 확인했습니다. 자동화는 셀프테스트 18개 통과, 실 API 검증은 아직입니다.</p>
-      </div>
-      <div class="side">
-        <div class="kv"><b>14.2억</b><span>누적 매출 (2020.02 —)</span></div>
-        <div class="chart" aria-label="연도별 매출, 단위 억 원">
-          <p class="label">연 매출 (억 원)</p>
-          <svg viewBox="0 0 260 170" role="img">
-            <title>연도별 매출: 2021 1.07, 2022 1.27, 2023 2.11, 2024 2.75, 2025 3.73, 2026 1~8월 2.64 (억 원)</title>
-            <line x1="0" y1="140" x2="260" y2="140" stroke="var(--rule)" stroke-width="1"/>
-            <g fill="var(--ink-3)">
-              <rect x="6" y="100" width="30" height="40"/>
-              <rect x="48" y="93" width="30" height="47"/>
-              <rect x="90" y="62" width="30" height="78"/>
-              <rect x="132" y="38" width="30" height="102"/>
-            </g>
-            <rect x="174" y="2" width="30" height="138" fill="var(--kraft)"/>
-            <rect x="216" y="42" width="30" height="98" fill="none" stroke="var(--kraft)" stroke-width="1.5" stroke-dasharray="3 2"/>
-            <text class="v" x="21" y="95" text-anchor="middle">1.07</text>
-            <text class="v" x="63" y="88" text-anchor="middle">1.27</text>
-            <text class="v" x="105" y="57" text-anchor="middle">2.11</text>
-            <text class="v" x="147" y="33" text-anchor="middle">2.75</text>
-            <text x="189" y="16" text-anchor="middle" style="fill:var(--paper);font-weight:600">3.73</text>
-            <text class="v" x="231" y="37" text-anchor="middle">2.64</text>
-            <text x="21" y="156" text-anchor="middle">'21</text>
-            <text x="63" y="156" text-anchor="middle">'22</text>
-            <text x="105" y="156" text-anchor="middle">'23</text>
-            <text x="147" y="156" text-anchor="middle">'24</text>
-            <text x="189" y="156" text-anchor="middle">'25</text>
-            <text x="231" y="156" text-anchor="middle">'26</text>
-            <text x="231" y="168" text-anchor="middle" style="font-size:9px">1~8월</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </article>
-
-  <article class="case" id="c6">
-    <div class="case-top">
-      <span class="size">대</span>
-      <div class="tt">
-        <h3>사내 메일 데이터 시스템</h3>
-        <p class="sub">15년치 메일 4만 5천 건을 원본을 건드리지 않고 검색·분류. 현장실습 중 1인으로 요구 정의부터 인수인계까지 맡았습니다.</p>
-        <div class="spec"><span>2026.07 — 08 · 현장실습</span><span>Python · Microsoft Graph API · Claude Code</span><span class="st run">사내 운영 중</span></div>
-      </div>
-    </div>
-    <div class="case-body">
-      <div class="main">
-        <h4>문제</h4>
-        <p>거래 흐름이 폴더 수백 개에 흩어져 담당자 기억으로 이어 붙이고 있었고, 예전 AI 정리 도구가 메일을 유실한 적이 있어 자동 분류를 믿지 않는 상태였습니다.</p>
-        <h4>한 일</h4>
-        <ul>
-          <li>외주 5곳을 검토한 뒤 직접 만들기로 하고, "원본은 읽기만" 원칙으로 분류는 별도 로컬 DB에서 했습니다.</li>
-          <li>3주 차에 내 첫 버전을 폐기했습니다. "기타 4,099건"이 생겨 있었고, 담당자가 정리한 폴더를 무시하고 있었습니다. 폴더를 최상위 신호로 올려 다시 설계했습니다.</li>
-          <li>Graph API가 하위 폴더 일부를 목록에서 빠뜨리는 걸 찾아, 메일의 상위 폴더 ID로 트리를 역산해 폴더 385개를 되찾았습니다.</li>
-        </ul>
-        <h4>결과</h4>
-        <p>사서함 전량 수집, 누락 0, 실시간 동기화로 회사 PC에 배포. 같은 기간 홈페이지·챗봇 인프라 소유권 회수, 광고 비승인 63건 → 36건 복구도 했습니다.</p>
-      </div>
-      <div class="side">
-        <div class="kv"><b>45,541건</b><span>수집, 누락 0 (2026.08.25)</span></div>
-        <div class="kv"><b>4.3%</b><span>확인필요 1,418건<br>애매한 건 사람에게 남김</span></div>
-        <div class="kv"><b>385개 폴더</b><span>API 누락 역산으로 복구</span></div>
-      </div>
-    </div>
-  </article>
-
-  <article class="case" id="c3">
-    <div class="case-top">
-      <span class="size">대</span>
-      <div class="tt">
-        <h3>크립토 퀀트: 내 전략 부검과 재구축</h3>
-        <p class="sub">실거래가 백테스트와 다르게 움직인 원인을 끝까지 추적했고, 그 교훈으로 새 전략을 처음부터 만들었습니다.</p>
-        <div class="spec"><span>2026.04 —</span><span>Python · freqtrade · Binance 공개 데이터</span><span class="st run">드라이런 통과 · 실거래 운용 중</span></div>
-      </div>
-    </div>
-    <div class="case-body">
-      <div class="main">
-        <h4>문제</h4>
-        <p>백테스트 +627% 전략이 실자금 17일에 −5.24%였습니다.</p>
-        <h4>한 일</h4>
-        <ul>
-          <li>판정 결과를 한 캔들 앞에 기록하는 룩어헤드 버그를 찾았고, 한 줄 수정본의 거래 9건이 실거래와 정확히 일치함을 확인했습니다.</li>
-          <li>신호 시점에서 데이터를 끊어 재계산하는 인과성 검사기를 만들었습니다.</li>
-          <li>새 전략은 펀딩비 캐리 같은 수익 메커니즘에서 출발. 가설 32개 중 4개만 통과시키고, 마지막 17개월은 봉인한 채 결과 예측부터 기록했습니다.</li>
-        </ul>
-        <h4>결과</h4>
-        <p>봉인 홀드아웃 Sharpe 1.34, 사전 예측 4/4 적중. 같은 기간 전체 종목은 −54%. 위 수치는 백테스트이고, 지금은 실거래로 운용하고 있습니다.</p>
-      </div>
-      <div class="side">
-        <div class="kv"><b>+627% → −40.6%</b><span>버그 한 줄 수정 전후</span></div>
-        <div class="kv"><b>Sharpe 1.34</b><span>봉인 홀드아웃 17개월</span></div>
-      </div>
-    </div>
-  </article>
-
-  <article class="case" id="c4">
-    <div class="case-top">
-      <span class="size">대</span>
-      <div class="tt">
-        <h3>Waymo 주행 데이터 2부작</h3>
-        <p class="sub">전공 프로젝트. 황색 신호 정지/통과 예측과 자율차 추종 안전성 비교.</p>
-        <div class="spec"><span>2026.05 — 06</span><span>scikit-learn · pyarrow</span><span class="st ok">완료</span></div>
-      </div>
-    </div>
-    <div class="case-body">
-      <div class="main">
-        <h4>한 일</h4>
-        <ul>
-          <li>신호 상태 71.7%가 결측이고 정지선이 없어 궤적 보간과 차로 중심선으로 복원, 판단 순간 1,304건을 추출했습니다.</li>
-          <li>자율차 앞/뒤 그룹과 일반차 대조군을 나눠 TTC·DRAC로 비교. 1,745만 행을 4GB 메모리에서 청크 처리했습니다.</li>
-        </ul>
-        <h4>결과</h4>
-        <p>예측 ROC-AUC 0.879로 선행연구 변수 순위를 재현. 자율차가 낀 추종은 위험 이벤트가 약 10분의 1이었습니다. 2부는 팀 프로젝트 중 분석 담당 부분입니다.</p>
-      </div>
-      <div class="side">
-        <div class="kv"><b>0.879</b><span>stop/go 예측 ROC-AUC</span></div>
-        <div class="kv"><b>약 10배</b><span>자율차 추종의 위험 감소</span></div>
-      </div>
-    </div>
-  </article>
-
-  <article class="case" id="c5">
-    <div class="case-top">
-      <span class="size">대</span>
-      <div class="tt">
-        <h3>GEO 진단 SaaS</h3>
-        <p class="sub">홈페이지 주소 하나로 ChatGPT·Gemini·Claude 등이 그 회사를 얼마나 인용하는지 재고, 고칠 것을 알려 주는 서비스.</p>
-        <div class="spec"><span>2026.09 — 10</span><span>Node 내장 모듈 · node:sqlite · 포트원</span></div>
-      </div>
-    </div>
-    <div class="case-body">
-      <div class="main">
-        <h4>한 일</h4>
-        <ul>
-          <li>회사명을 뺀 고정 질문 20개로 인용률을 재고, 반복 측정으로 LLM 답변의 흔들림까지 분리했습니다.</li>
-          <li>넘겨받은 코드에서 한글 옆 숫자를 0개로 세던 정규식, 사이트맵 오판, 회사명 오인식을 고쳤습니다.</li>
-          <li>무료 진단 → 유료 정밀 진단 → 3개월 개선 대행으로 사업 구조를 짜고, 개선 과제 68종을 자동 생성하게 했습니다.</li>
-        </ul>
-        <h4>결과</h4>
-        <p>한 제조사 실측 인용률 20%, 측정 1회 약 3,900원. 외부 패키지 0개, 자동 테스트 통과.</p>
-      </div>
-      <div class="side">
-        <div class="kv"><b>68종</b><span>자동 생성 개선 과제</span></div>
-        <div class="kv"><b>0개</b><span>외부 패키지 의존성</span></div>
-      </div>
-    </div>
-  </article>
-</section>
-
-<section>
-  <div class="sec">
-    <span class="size s-m">중</span>
-    <h2>중형</h2>
-  </div>
-  <div class="mids">
-    <div class="mid">
-      <div class="mid-h"><span class="size s-m">중</span><h3>자성유체 촉각 장갑</h3></div>
-      <div class="meta"><span>2026.09 · 현장실습</span><span class="st wait">설계 · 합성 데이터 검증</span></div>
-      <p>자성유체로 로봇 손을 구동하는 안은 힘이 근육의 150분의 1이라 기각하고, 로봇 학습용 촉각 데이터 장갑으로 바꿨습니다. LeRobot v3 데이터셋 구조까지 검증했습니다.</p>
-    </div>
-    <div class="mid">
-      <div class="mid-h"><span class="size s-m">중</span><h3>자성유체 응용 지도 · 규제 분석</h3></div>
-      <div class="meta"><span>2026.08 — 09 · 현장실습</span><span class="st ok">완료</span></div>
-      <p>응용처를 물성 5가지로 나눠 빈 산업을 찾고, 주력 원료가 EU PFAS 규제 대상이라는 리스크와 기회를 정리했습니다.</p>
-    </div>
-    <div class="mid">
-      <div class="mid-h"><span class="size s-m">중</span><h3>커스텀 반찬 구독 설계</h3></div>
-      <div class="meta"><span>2026.09</span><span class="st wait">규격 확정</span></div>
-      <p>반찬을 한 칸씩 미리 소분해 로봇 문제를 집어 옮기기로 줄였습니다. 트레이 폭을 고정해 로봇 위치를 8개로 묶고, 염도 조절 공정으로 조리 배치를 28 → 20회로 줄였습니다.</p>
-    </div>
-    <div class="mid">
-      <div class="mid-h"><span class="size s-m">중</span><h3>video2score</h3></div>
-      <div class="meta"><span>2026.07</span><span class="st ok">완료</span></div>
-      <p>피아노 연주 화면 녹화를 MIDI와 악보로 변환. 막대 밝기 분포를 다시 분석해 타이밍 오차를 68ms → 15ms로 줄였습니다.</p>
-    </div>
-    <div class="mid">
-      <div class="mid-h"><span class="size s-m">중</span><h3>topic_radar</h3></div>
-      <div class="meta"><span>2026.07 — 08</span><span class="st ok">v1 완성</span></div>
-      <p>유튜브 소재 발굴 도구. 조회수 대신 채널 평균 대비 배수를 주지표로 써서 작은 채널의 대박 영상이 위로 오게 했습니다.</p>
-    </div>
-    <div class="mid">
-      <div class="mid-h"><span class="size s-m">중</span><h3>캡스톤: 공사구간 휴머노이드 배치</h3></div>
-      <div class="meta"><span>2026.05</span><span class="st ok">완료</span></div>
-      <p>시뮬레이터 실험(9 시나리오 × 30명)에서 피험자 학습효과를 발견하고, 무작위 순서로 데이터를 다시 모아 결론을 바로잡았습니다.</p>
-    </div>
-    <div class="mid">
-      <div class="mid-h"><span class="size s-m">중</span><h3>군인 D-day 앱</h3></div>
-      <div class="meta"><span>2026.08</span><span class="st wait">iOS 위젯 게이트 대기</span></div>
-      <p>병사가 폰을 쓰는 하루 3시간에서 설계를 시작. 위젯을 필수로 보고, 시험 구현 통과 전엔 본 개발을 막는 관문을 뒀습니다.</p>
-    </div>
-    <div class="mid">
-      <div class="mid-h"><span class="size s-m">중</span><h3>AI 영상 공장</h3></div>
-      <div class="meta"><span>2026.09</span><span class="st run">업로드 중</span></div>
-      <p>주제 하나로 영어·스페인어·일본어 쇼츠 3편을 로컬에서 자동 생성, 한계비용 0원. 언어별 대본은 번역하지 않고 따로 씁니다.</p>
-    </div>
-  </div>
-</section>
-
-<section id="small">
-  <div class="sec">
-    <span class="size s-s">소</span>
-    <h2>소형</h2>
-  </div>
-  <div class="scroll">
-  <table>
-    <thead><tr><th></th><th>프로젝트</th><th>한 일</th><th>상태</th></tr></thead>
-    <tbody>
-      <tr><td><span class="size s-s">소</span></td><td class="t">strategy_forge</td><td>전략 3,537개 백테스트, 상위 성과 대부분이 선택 효과임을 확인</td><td><span class="st ok">완료</span></td></tr>
-      <tr><td><span class="size s-s">소</span></td><td class="t">청산 캐스케이드</td><td>+48bp가 시장 조정 후 +3bp로 소멸, 가설 기각</td><td><span class="st no">기각</span></td></tr>
-      <tr><td><span class="size s-s">소</span></td><td class="t">업비트 상장 급등</td><td>상장 155종목 검증, 수익은 시초가 체결에만 존재</td><td><span class="st no">기각</span></td></tr>
-      <tr><td><span class="size s-s">소</span></td><td class="t">워크포워드 검증 앱</td><td>룩어헤드를 테스트로 막는 Streamlit 검증 앱</td><td><span class="st ok">완료</span></td></tr>
-      <tr><td><span class="size s-s">소</span></td><td class="t">캠퍼스 주차요금 연구</td><td>헤도닉 회귀 + 지불의사 설문으로 적정 요금 도출</td><td><span class="st wait">데이터 대기</span></td></tr>
-      <tr><td><span class="size s-s">소</span></td><td class="t">road_director</td><td>React Three Fiber 3D 연출 에디터</td><td><span class="st ok">v0.2</span></td></tr>
-      <tr><td><span class="size s-s">소</span></td><td class="t">3D 악보 영상</td><td>MIDI 한 개로 세로 3D 영상 자동 렌더</td><td><span class="st ok">완료</span></td></tr>
-      <tr><td><span class="size s-s">소</span></td><td class="t">자동 컷 편집기</td><td>무음·필러 자동 점프컷 + 자막, 길이 56% 단축</td><td><span class="st ok">v1</span></td></tr>
-      <tr><td><span class="size s-s">소</span></td><td class="t">로컬 음성 복제</td><td>오픈소스 TTS를 GPU로 띄워 내 목소리 복제</td><td><span class="st ok">완료</span></td></tr>
-      <tr><td><span class="size s-s">소</span></td><td class="t">업무 프로그램 대체</td><td>엑셀 일괄 등록이 안 되는 레거시 프로그램 대체 기획</td><td><span class="st wait">기획</span></td></tr>
-      <tr><td><span class="size s-s">소</span></td><td class="t">니치 SaaS 발굴</td><td>후보 60개+를 탈락 판별식 3개로 4개까지 압축</td><td><span class="st ok">완료</span></td></tr>
-      <tr><td><span class="size s-s">소</span></td><td class="t">AI 고객지원 위젯</td><td>모르면 사람에게 넘기도록 강제한 상담 위젯</td><td><span class="st ok">MVP</span></td></tr>
-      <tr><td><span class="size s-s">소</span></td><td class="t">매출 이력 대시보드</td><td>부가세 신고 자료로 채널별 성장 전환 시점 확인</td><td><span class="st ok">완료</span></td></tr>
-    </tbody>
-  </table>
-  </div>
-</section>
-
-<section>
-  <div class="sec">
-    <h2>일하는 방식</h2>
-  </div>
-  <div class="ways">
-    <div class="way">
-      <h3>좋은 숫자는 먼저 의심합니다</h3>
-      <p>+627%는 룩어헤드였고, +48bp는 시장 베타였습니다.</p>
-    </div>
-    <div class="way">
-      <h3>병목부터 지목합니다</h3>
-      <p>출고는 포장보다 엑셀 왕복이, 메일 분류는 AI보다 담당자가 만든 폴더가 답이었습니다.</p>
-    </div>
-    <div class="way">
-      <h3>중단 기준을 먼저 정합니다</h3>
-      <p>iOS 위젯 관문, 촉각 장갑의 +10%p 기준처럼 접을 조건을 시작 전에 적어 둡니다.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <span>기록 범위 2020.02 — 2026.10</span>
-  <span>대 5 · 중 8 · 소 13</span>
-</footer>
-
-</div>
+<script src="https://inquiry-desk-production-aaa6e4ea.up.railway.app/widget.js" data-tenant="복스컴퍼니" defer></script>
 </body>
 </html>
